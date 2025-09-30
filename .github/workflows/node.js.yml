@@ -55,16 +55,16 @@ jobs:
         with:
           args: --delete
         env:
-          AWS_S3_BUCKET: ${{ secrets.AWS_S3_BUCKET }}
-          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          AWS_REGION: ${{ secrets.AWS_REGION }}
+          AWS_S3_BUCKET: ${{ secrets.infra-ci-cd-bucket }}
+          AWS_ACCESS_KEY_ID: ${{ secrets.AKIA4ULAQABK5SGPMNWA }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.tSgdCepJ/Iw+vjtGhM5DH30bYuItf6os2SuxkKUk }}
+          AWS_REGION: ${{ secrets.ap-south-1 }}
           SOURCE_DIR: out
 
       - name: Invalidate CloudFront cache
         uses: chetan/invalidate-cloudfront-action@v2
         env:
-          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          AWS_ACCESS_KEY_ID: ${{ secrets.AKIA4ULAQABK5SGPMNWA }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.tSgdCepJ/Iw+vjtGhM5DH30bYuItf6os2SuxkKUk }}
           DISTRIBUTION: ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }}
           PATHS: "/*"
